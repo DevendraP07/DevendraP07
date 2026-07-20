@@ -256,11 +256,11 @@ alt="Contribution Snake"/>
 <img src="https://skillicons.dev/icons?i=github" height="45"/>
 </a>
 
-<a href="https://www.linkedin.com/">
+<a href="https://www.linkedin.com/in/devendra--p/">
 <img src="https://skillicons.dev/icons?i=linkedin" height="45"/>
 </a>
 
-<a href="mailto:your-email@example.com">
+<a href="mailto:devap6742@gmail.com">
 <img src="https://skillicons.dev/icons?i=gmail" height="45"/>
 </a>
 
