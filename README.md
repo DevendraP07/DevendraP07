@@ -138,7 +138,13 @@ Removing a topic updates the dashboard automatically.
 
 <p align="center">
 
-[![Untagged](https://img.shields.io/badge/%F0%9F%86%95%20Untagged%2025-2ea44f?style=for-the-badge)](https://github.com/DevendraP07?tab=repositories&q=topic:untagged)
+[![Next.js](https://img.shields.io/badge/%E2%96%B2%20Next.js%201-2ea44f?style=for-the-badge)](https://github.com/DevendraP07?tab=repositories&q=topic:nextjs)
+
+[![TypeScript](https://img.shields.io/badge/%F0%9F%94%B7%20TypeScript%201-2ea44f?style=for-the-badge)](https://github.com/DevendraP07?tab=repositories&q=topic:typescript)
+
+[![PostgreSQL](https://img.shields.io/badge/%F0%9F%90%98%20PostgreSQL%201-2ea44f?style=for-the-badge)](https://github.com/DevendraP07?tab=repositories&q=topic:postgresql)
+
+[![Untagged](https://img.shields.io/badge/%F0%9F%86%95%20Untagged%2024-2ea44f?style=for-the-badge)](https://github.com/DevendraP07?tab=repositories&q=topic:untagged)
 
 </p>
 
@@ -155,12 +161,38 @@ Removing a topic updates the dashboard automatically.
 | [**SMCMS**](https://github.com/DevendraP07/SMCMS) | No description available |
 | [**BatchBase**](https://github.com/DevendraP07/BatchBase) | No description available |
 
-<details >
-<summary><b>🆕 Untagged (25)</b></summary>
+<details open>
+<summary><b>▲ Next.js (1)</b></summary>
 
 | Repository | Description | ⭐ | 🍴 |
 |-----------|-------------|---|---|
 | [**VowLens**](https://github.com/DevendraP07/VowLens) | No description available | ⭐ 0 | 🍴 0 |
+
+</details>
+
+<details >
+<summary><b>🔷 TypeScript (1)</b></summary>
+
+| Repository | Description | ⭐ | 🍴 |
+|-----------|-------------|---|---|
+| [**VowLens**](https://github.com/DevendraP07/VowLens) | No description available | ⭐ 0 | 🍴 0 |
+
+</details>
+
+<details >
+<summary><b>🐘 PostgreSQL (1)</b></summary>
+
+| Repository | Description | ⭐ | 🍴 |
+|-----------|-------------|---|---|
+| [**VowLens**](https://github.com/DevendraP07/VowLens) | No description available | ⭐ 0 | 🍴 0 |
+
+</details>
+
+<details >
+<summary><b>🆕 Untagged (24)</b></summary>
+
+| Repository | Description | ⭐ | 🍴 |
+|-----------|-------------|---|---|
 | [**MedShop-App**](https://github.com/DevendraP07/MedShop-App) | No description available | ⭐ 0 | 🍴 0 |
 | [**RepairSync**](https://github.com/DevendraP07/RepairSync) | No description available | ⭐ 0 | 🍴 0 |
 | [**DriveEase**](https://github.com/DevendraP07/DriveEase) | No description available | ⭐ 0 | 🍴 0 |
@@ -196,7 +228,6 @@ Removing a topic updates the dashboard automatically.
 
 | Repository | Created | Last Updated |
 |-----------|---------|--------------|
-| [**VowLens**](https://github.com/DevendraP07/VowLens) | Jul 19, 2026 | Jul 19, 2026 |
 | [**MedShop-App**](https://github.com/DevendraP07/MedShop-App) | Jul 18, 2026 | Jul 18, 2026 |
 | [**RepairSync**](https://github.com/DevendraP07/RepairSync) | Jun 17, 2026 | Jun 17, 2026 |
 | [**DriveEase**](https://github.com/DevendraP07/DriveEase) | Jun 16, 2026 | Jun 16, 2026 |
