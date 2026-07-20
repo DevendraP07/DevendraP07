@@ -1,193 +1,818 @@
 /**
- * generate-readme.js
+ * ------------------------------------------------------------
+ * GitHub Profile Dashboard Generator
+ * Author: DevendraP07
+ * ------------------------------------------------------------
  *
- * Fetches all public repos for GH_USERNAME, groups them by GitHub "topic" tags,
- * and injects a stack-sorted dashboard + stats into README.md between the
- * <!-- STACKS:START --> / <!-- STACKS:END --> markers.
- *
- * Run by .github/workflows/update-readme.yml — you shouldn't need to run this
- * manually, but you can test locally with:
- *   GH_USERNAME=yourname GH_TOKEN=ghp_xxx node scripts/generate-readme.js
+ * Part 1
+ * - Configuration
+ * - GitHub API
+ * - Repository Fetching
+ * - Helpers
  */
 
 const fs = require("fs");
 const path = require("path");
 
-const USERNAME = process.env.GH_USERNAME;
-const TOKEN = process.env.GH_TOKEN;
 const README_PATH = path.join(__dirname, "..", "README.md");
 
-if (!USERNAME || !TOKEN) {
-  console.error("Missing GH_USERNAME or GH_TOKEN environment variables.");
-  process.exit(1);
+const USERNAME = process.env.GH_USERNAME;
+const TOKEN = process.env.GH_TOKEN;
+
+if (!USERNAME) {
+    throw new Error("GH_USERNAME environment variable missing.");
 }
 
-// Map of known topic tags -> pretty label + emoji.
-// Add to this list as you invent new stack tags. Anything not listed
-// here still shows up, just grouped under "Other".
-const STACK_LABELS = {
-  nextjs: "▲ Next.js",
-  react: "⚛️ React",
-  reactnative: "📱 React Native",
-  java: "☕ Java",
-  python: "🐍 Python",
-  typescript: "🔷 TypeScript",
-  javascript: "🟨 JavaScript",
-  nodejs: "🟢 Node.js",
-  flutter: "🐦 Flutter",
-  django: "🎸 Django",
-  flask: "🧪 Flask",
-  express: "🚂 Express",
-  mongodb: "🍃 MongoDB",
-  postgresql: "🐘 PostgreSQL",
-  mysql: "🐬 MySQL",
-  docker: "🐳 Docker",
-  aws: "☁️ AWS",
-  golang: "🐹 Go",
-  rust: "🦀 Rust",
-  cpp: "➕ C++",
-  csharp: "🔵 C#",
-  machinelearning: "🤖 Machine Learning",
-  androidapp: "🤖 Android",
+if (!TOKEN) {
+    throw new Error("GH_TOKEN environment variable missing.");
+}
+
+/* ===========================================================
+   CONFIGURATION
+=========================================================== */
+
+const CONFIG = {
+
+    /**
+     * Repositories to ignore
+     */
+
+    ignoredRepositories: [
+        USERNAME
+    ],
+
+    /**
+     * Topics display order
+     * Unknown topics appear under "Other"
+     */
+
+    stackOrder: [
+
+        "nextjs",
+
+        "react",
+
+        "java",
+
+        "python",
+
+        "nodejs",
+
+        "express",
+
+        "typescript",
+
+        "javascript",
+
+        "postgresql",
+
+        "mysql",
+
+        "mongodb",
+
+        "flutter",
+
+        "android",
+
+        "machinelearning",
+
+        "docker",
+
+        "other",
+
+        "untagged"
+
+    ],
+
+    /**
+     * Topic display information
+     */
+
+    stackInfo: {
+
+        nextjs: {
+            icon: "▲",
+            name: "Next.js"
+        },
+
+        react: {
+            icon: "⚛️",
+            name: "React"
+        },
+
+        java: {
+            icon: "☕",
+            name: "Java"
+        },
+
+        python: {
+            icon: "🐍",
+            name: "Python"
+        },
+
+        nodejs: {
+            icon: "🟢",
+            name: "Node.js"
+        },
+
+        express: {
+            icon: "🚂",
+            name: "Express"
+        },
+
+        typescript: {
+            icon: "🔷",
+            name: "TypeScript"
+        },
+
+        javascript: {
+            icon: "🟨",
+            name: "JavaScript"
+        },
+
+        postgresql: {
+            icon: "🐘",
+            name: "PostgreSQL"
+        },
+
+        mysql: {
+            icon: "🐬",
+            name: "MySQL"
+        },
+
+        mongodb: {
+            icon: "🍃",
+            name: "MongoDB"
+        },
+
+        flutter: {
+            icon: "📱",
+            name: "Flutter"
+        },
+
+        android: {
+            icon: "🤖",
+            name: "Android"
+        },
+
+        machinelearning: {
+            icon: "🧠",
+            name: "Machine Learning"
+        },
+
+        docker: {
+            icon: "🐳",
+            name: "Docker"
+        },
+
+        other: {
+            icon: "📦",
+            name: "Other Technologies"
+        },
+
+        untagged: {
+            icon: "🆕",
+            name: "Untagged"
+        }
+
+    }
+
 };
 
-async function ghFetch(url) {
-  const res = await fetch(url, {
-    headers: {
-      Authorization: `Bearer ${TOKEN}`,
-      Accept: "application/vnd.github+json",
-      "X-GitHub-Api-Version": "2022-11-28",
-    },
-  });
-  if (!res.ok) {
-    throw new Error(`GitHub API ${res.status} for ${url}: ${await res.text()}`);
-  }
-  return res.json();
-}
+/* ===========================================================
+   GITHUB REQUEST
+=========================================================== */
 
-async function fetchAllRepos() {
-  let page = 1;
-  let all = [];
-  while (true) {
-    const batch = await ghFetch(
-      `https://api.github.com/users/${USERNAME}/repos?per_page=100&page=${page}&type=owner&sort=updated`
+async function githubRequest(endpoint) {
+
+    const response = await fetch(
+
+        `https://api.github.com${endpoint}`,
+
+        {
+
+            headers: {
+
+                Authorization: `Bearer ${TOKEN}`,
+
+                Accept: "application/vnd.github+json",
+
+                "X-GitHub-Api-Version": "2022-11-28"
+
+            }
+
+        }
+
     );
-    all = all.concat(batch);
-    if (batch.length < 100) break;
-    page++;
-  }
-  // Skip forks, archived repos, and the special profile repo itself
-  return all.filter(
-    (r) => !r.fork && !r.archived && r.name.toLowerCase() !== USERNAME.toLowerCase()
-  );
-}
 
-function groupByTopic(repos) {
-  const groups = {};
-  for (const repo of repos) {
-    const tags = repo.topics && repo.topics.length ? repo.topics : ["untagged"];
-    for (const tag of tags) {
-      if (!groups[tag]) groups[tag] = [];
-      groups[tag].push(repo);
+    if (!response.ok) {
+
+        throw new Error(
+
+            `GitHub API Error ${response.status}\n${await response.text()}`
+
+        );
+
     }
-  }
-  return groups;
+
+    return response.json();
+
 }
 
-function topicSearchUrl(topic) {
-  return `https://github.com/${USERNAME}?tab=repositories&q=topic%3A${encodeURIComponent(topic)}`;
-}
+/* ===========================================================
+   FETCH ALL REPOSITORIES
+=========================================================== */
 
-function badge(label, count, topic) {
-  const text = encodeURIComponent(label.replace(/-/g, "--"));
-  const badgeUrl = `https://img.shields.io/badge/${text}-${count}-2ea44f?style=for-the-badge`;
-  return `[![${label}](${badgeUrl})](${topicSearchUrl(topic)})`;
-}
+async function fetchRepositories() {
 
-function repoCard(repo) {
-  const desc = (repo.description || "No description yet").replace(/\|/g, "-");
-  return `| [\`${repo.name}\`](${repo.html_url}) | ${desc} | ⭐ ${repo.stargazers_count} | 🍴 ${repo.forks_count} |`;
-}
+    let page = 1;
 
-function buildSection(groups, repos) {
-  const totalStars = repos.reduce((s, r) => s + r.stargazers_count, 0);
-  const totalForks = repos.reduce((s, r) => s + r.forks_count, 0);
+    const repositories = [];
 
-  // Sort tags: known stacks first (alphabetically), then unknown ones, "untagged" last
-  const tags = Object.keys(groups).sort((a, b) => {
-    if (a === "untagged") return 1;
-    if (b === "untagged") return -1;
-    return a.localeCompare(b);
-  });
+    while (true) {
 
-  let out = "";
+        const result = await githubRequest(
 
-  out += `<p align="center">\n`;
-  out += `${badge("Total Projects", repos.length, "")
-    .replace(topicSearchUrl(""), `https://github.com/${USERNAME}?tab=repositories`)}\n`;
-  out += `${badge("Total Stars", totalStars, "").replace(
-    topicSearchUrl(""),
-    `https://github.com/${USERNAME}?tab=repositories&sort=stargazers`
-  )}\n`;
-  out += `${badge("Total Forks", totalForks, "").replace(
-    topicSearchUrl(""),
-    `https://github.com/${USERNAME}?tab=repositories`
-  )}\n`;
-  out += `</p>\n\n`;
+            `/users/${USERNAME}/repos?per_page=100&page=${page}&sort=updated&type=owner`
 
-  out += `### Filter by stack\n`;
-  out += `_Click a badge to see that stack's repos live on GitHub._\n\n`;
-  out += `<p align="center">\n`;
-  for (const tag of tags) {
-    if (tag === "untagged") continue;
-    const label = STACK_LABELS[tag] || tag;
-    out += `${badge(label, groups[tag].length, tag)}\n`;
-  }
-  out += `</p>\n\n`;
+        );
 
-  for (const tag of tags) {
-    const label = STACK_LABELS[tag] || (tag === "untagged" ? "🏷️ Untagged" : tag);
-    out += `<details${tag === tags[0] ? " open" : ""}>\n`;
-    out += `<summary><b>${label} (${groups[tag].length})</b></summary>\n\n`;
-    out += `| Repo | Description | Stars | Forks |\n`;
-    out += `|---|---|---|---|\n`;
-    for (const repo of groups[tag].sort((a, b) => b.stargazers_count - a.stargazers_count)) {
-      out += repoCard(repo) + "\n";
+        if (result.length === 0) {
+
+            break;
+
+        }
+
+        repositories.push(...result);
+
+        page++;
+
     }
-    out += `\n</details>\n\n`;
-  }
 
-  return out.trim();
+    return repositories
+        .filter(repo => !repo.fork)
+        .filter(repo => !repo.archived)
+        .filter(repo => !CONFIG.ignoredRepositories.includes(repo.name));
+
 }
+
+/* ===========================================================
+   HELPERS
+=========================================================== */
+
+function totalStars(repositories) {
+
+    return repositories.reduce(
+
+        (sum, repository) => sum + repository.stargazers_count,
+
+        0
+
+    );
+
+}
+
+function totalForks(repositories) {
+
+    return repositories.reduce(
+
+        (sum, repository) => sum + repository.forks_count,
+
+        0
+
+    );
+
+}
+
+function totalOpenIssues(repositories) {
+
+    return repositories.reduce(
+
+        (sum, repository) => sum + repository.open_issues_count,
+
+        0
+
+    );
+
+}
+
+function totalWatchers(repositories) {
+
+    return repositories.reduce(
+
+        (sum, repository) => sum + repository.watchers_count,
+
+        0
+
+    );
+
+}
+
+function formatDate(date) {
+
+    return new Date(date).toLocaleDateString(
+
+        "en-US",
+
+        {
+
+            year: "numeric",
+
+            month: "short",
+
+            day: "numeric"
+
+        }
+
+    );
+
+}
+
+function githubSearchURL(topic) {
+
+    return `https://github.com/${USERNAME}?tab=repositories&q=topic:${encodeURIComponent(topic)}`;
+
+}
+
+/* ===========================================================
+   GROUP REPOSITORIES USING GITHUB TOPICS
+=========================================================== */
+
+function categorizeRepositories(repositories) {
+
+    const groups = {};
+
+    for (const key of CONFIG.stackOrder) {
+
+        groups[key] = [];
+
+    }
+
+    for (const repository of repositories) {
+
+        const topics = Array.isArray(repository.topics)
+            ? repository.topics.map(topic => topic.toLowerCase())
+            : [];
+
+        // No topics -> Untagged
+        if (topics.length === 0) {
+
+            groups.untagged.push(repository);
+
+            continue;
+
+        }
+
+        let matched = false;
+
+        for (const topic of topics) {
+
+            if (CONFIG.stackOrder.includes(topic)) {
+
+                groups[topic].push(repository);
+
+                matched = true;
+
+            }
+
+        }
+
+        if (!matched) {
+
+            groups.other.push(repository);
+
+        }
+
+    }
+
+    return groups;
+
+}
+
+/* ===========================================================
+   SORT REPOSITORIES
+=========================================================== */
+
+function sortRepositories(groups) {
+
+    for (const key of Object.keys(groups)) {
+
+        groups[key].sort((a, b) => {
+
+            // Latest updated first
+            return new Date(b.updated_at) - new Date(a.updated_at);
+
+        });
+
+    }
+
+    return groups;
+
+}
+
+/* ===========================================================
+   GET FEATURED REPOSITORIES
+=========================================================== */
+
+function getFeaturedRepositories(repositories) {
+
+    return [...repositories]
+
+        .sort((a, b) => {
+
+            if (b.stargazers_count !== a.stargazers_count) {
+
+                return b.stargazers_count - a.stargazers_count;
+
+            }
+
+            return new Date(b.updated_at) - new Date(a.updated_at);
+
+        })
+
+        .slice(0, 6);
+
+}
+
+/* ===========================================================
+   BUILD SUMMARY
+=========================================================== */
+
+function buildSummary(repositories) {
+
+    return {
+
+        totalRepositories: repositories.length,
+
+        totalStars: totalStars(repositories),
+
+        totalForks: totalForks(repositories),
+
+        totalIssues: totalOpenIssues(repositories),
+
+        totalWatchers: totalWatchers(repositories)
+
+    };
+
+}
+
+/* ===========================================================
+   MARKDOWN HELPERS
+=========================================================== */
+
+function badge(text, color = "2ea44f") {
+
+    const value = encodeURIComponent(text);
+
+    return `https://img.shields.io/badge/${value}-${color}?style=for-the-badge`;
+
+}
+
+function topicBadge(topic, count) {
+
+    const info = CONFIG.stackInfo[topic] ?? {
+
+        icon: "📦",
+
+        name: topic
+
+    };
+
+    return `[![${
+        info.name
+    }](${badge(`${info.icon} ${info.name} ${count}`)})](${githubSearchURL(topic)})`;
+
+}
+
+function repositoryRow(repository) {
+
+    const description = repository.description
+        ? repository.description.replace(/\|/g, "\\|")
+        : "No description available";
+
+    return `| [**${repository.name}**](${repository.html_url}) | ${description} | ⭐ ${repository.stargazers_count} | 🍴 ${repository.forks_count} |`;
+
+}
+
+/* ===========================================================
+   BUILD FEATURED PROJECTS
+=========================================================== */
+
+function buildFeaturedSection(repositories) {
+
+    const featured = getFeaturedRepositories(repositories);
+
+    let markdown = "";
+
+    markdown += "## ⭐ Featured Repositories\n\n";
+
+    markdown += "| Repository | Description |\n";
+    markdown += "|-----------|-------------|\n";
+
+    for (const repository of featured) {
+
+        markdown += `| [**${repository.name}**](${repository.html_url}) | ${
+            repository.description || "No description available"
+        } |\n`;
+
+    }
+
+    markdown += "\n";
+
+    return markdown;
+
+}
+
+/* ===========================================================
+   BUILD STACK BADGES
+=========================================================== */
+
+function buildTopicBadges(groups) {
+
+    let markdown = "";
+
+    markdown += "<p align=\"center\">\n\n";
+
+    for (const topic of CONFIG.stackOrder) {
+
+        if (groups[topic].length === 0) {
+
+            continue;
+
+        }
+
+        markdown += topicBadge(
+
+            topic,
+
+            groups[topic].length
+
+        ) + "\n\n";
+
+    }
+
+    markdown += "</p>\n\n";
+
+    return markdown;
+
+}
+
+/* ===========================================================
+   BUILD DASHBOARD
+=========================================================== */
+
+function buildDashboard(summary, groups) {
+
+    let markdown = "";
+
+    markdown += "<br>\n";
+
+    markdown += "<p align=\"center\">\n\n";
+
+    markdown += `[![](https://img.shields.io/badge/Repositories-${summary.totalRepositories}-181717?style=for-the-badge)](https://github.com/${USERNAME}?tab=repositories)\n`;
+
+    markdown += `[![](https://img.shields.io/badge/Stars-${summary.totalStars}-f1c40f?style=for-the-badge)](https://github.com/${USERNAME}?tab=repositories)\n`;
+
+    markdown += `[![](https://img.shields.io/badge/Forks-${summary.totalForks}-3498db?style=for-the-badge)](https://github.com/${USERNAME}?tab=repositories)\n`;
+
+    markdown += `[![](https://img.shields.io/badge/Watchers-${summary.totalWatchers}-8e44ad?style=for-the-badge)](https://github.com/${USERNAME}?tab=repositories)\n`;
+
+    markdown += "</p>\n\n";
+
+    markdown += "---\n\n";
+
+    markdown += "## 🗂 Repository Explorer\n\n";
+
+    markdown +=
+        "> Repositories are grouped **only using GitHub Topics**.\n\n";
+
+    markdown +=
+        "> Click any stack below to open the filtered GitHub repositories.\n\n";
+
+    markdown += buildTopicBadges(groups);
+
+    markdown += "---\n\n";
+
+    return markdown;
+
+}
+
+/* ===========================================================
+   BUILD STACK SECTIONS
+=========================================================== */
+
+function buildStackSections(groups) {
+
+    let markdown = "";
+
+    for (const stack of CONFIG.stackOrder) {
+
+        const repositories = groups[stack];
+
+        if (!repositories.length) continue;
+
+        const info = CONFIG.stackInfo[stack] ?? {
+
+            icon: "📦",
+
+            name: stack
+
+        };
+
+        markdown += `<details ${stack === CONFIG.stackOrder[0] ? "open" : ""}>\n`;
+
+        markdown += `<summary><b>${info.icon} ${info.name} (${repositories.length})</b></summary>\n\n`;
+
+        markdown += "| Repository | Description | ⭐ | 🍴 |\n";
+        markdown += "|-----------|-------------|---|---|\n";
+
+        for (const repository of repositories) {
+
+            markdown += repositoryRow(repository) + "\n";
+
+        }
+
+        markdown += "\n";
+
+        markdown += "</details>\n\n";
+
+    }
+
+    return markdown;
+
+}
+
+/* ===========================================================
+   BUILD UNTAGGED SECTION
+=========================================================== */
+
+function buildUntagged(groups) {
+
+    if (!groups.untagged.length) {
+
+        return "";
+
+    }
+
+    let markdown = "";
+
+    markdown += "---\n\n";
+
+    markdown += "## 🆕 Newly Created / Untagged Repositories\n\n";
+
+    markdown +=
+        "> Add a GitHub Topic to automatically move these repositories into the correct stack.\n\n";
+
+    markdown += "| Repository | Created | Last Updated |\n";
+
+    markdown += "|-----------|---------|--------------|\n";
+
+    for (const repository of groups.untagged) {
+
+        markdown += `| [**${repository.name}**](${repository.html_url}) | ${formatDate(
+            repository.created_at
+        )} | ${formatDate(repository.updated_at)} |\n`;
+
+    }
+
+    markdown += "\n";
+
+    return markdown;
+
+}
+
+/* ===========================================================
+   BUILD COMPLETE GENERATED SECTION
+=========================================================== */
+
+function buildGeneratedMarkdown(repositories) {
+
+    const groups = sortRepositories(
+
+        categorizeRepositories(repositories)
+
+    );
+
+    const summary = buildSummary(repositories);
+
+    let markdown = "";
+
+    markdown += buildDashboard(summary, groups);
+
+    markdown += buildFeaturedSection(repositories);
+
+    markdown += buildStackSections(groups);
+
+    markdown += buildUntagged(groups);
+
+    return markdown;
+
+}
+
+/* ===========================================================
+   README UPDATE
+=========================================================== */
+
+function updateReadme(content) {
+
+    const START = "<!-- DASHBOARD:START -->";
+    const END = "<!-- DASHBOARD:END -->";
+
+    const readme = fs.readFileSync(README_PATH, "utf8");
+
+    const startIndex = readme.indexOf(START);
+    const endIndex = readme.indexOf(END);
+
+    if (startIndex === -1 || endIndex === -1) {
+
+        throw new Error(
+            "README markers not found.\nExpected:\n<!-- DASHBOARD:START -->\n<!-- DASHBOARD:END -->"
+        );
+
+    }
+
+    const updatedReadme =
+        readme.substring(0, startIndex + START.length) +
+        "\n\n" +
+        content.trim() +
+        "\n\n" +
+        readme.substring(endIndex);
+
+    fs.writeFileSync(
+
+        README_PATH,
+
+        updatedReadme,
+
+        "utf8"
+
+    );
+
+}
+
+/* ===========================================================
+   MAIN
+=========================================================== */
 
 async function main() {
-  const repos = await fetchAllRepos();
-  const groups = groupByTopic(repos);
-  const section = buildSection(groups, repos);
 
-  const readme = fs.readFileSync(README_PATH, "utf8");
-  const startMarker = "<!-- STACKS:START -->";
-  const endMarker = "<!-- STACKS:END -->";
-  const startIdx = readme.indexOf(startMarker);
-  const endIdx = readme.indexOf(endMarker);
+    console.log("────────────────────────────────────────────");
+    console.log("GitHub Profile Dashboard Generator");
+    console.log("────────────────────────────────────────────");
 
-  if (startIdx === -1 || endIdx === -1) {
-    console.error("README.md is missing the STACKS:START / STACKS:END markers.");
-    process.exit(1);
-  }
+    console.log("\nFetching repositories...");
 
-  const updated =
-    readme.slice(0, startIdx + startMarker.length) +
-    "\n\n" +
-    section +
-    "\n\n" +
-    readme.slice(endIdx);
+    const repositories = await fetchRepositories();
 
-  fs.writeFileSync(README_PATH, updated);
-  console.log(`Updated README.md with ${repos.length} repos across ${Object.keys(groups).length} tags.`);
+    console.log(`Found ${repositories.length} repositories.`);
+
+    console.log("\nGenerating dashboard...");
+
+    const markdown = buildGeneratedMarkdown(
+
+        repositories
+
+    );
+
+    console.log("Updating README...");
+
+    updateReadme(
+
+        markdown
+
+    );
+
+    console.log("");
+
+    console.log("Dashboard updated successfully.");
+
+    console.log("");
+
 }
 
-main().catch((err) => {
-  console.error(err);
-  process.exit(1);
-});
+/* ===========================================================
+   EXECUTE
+=========================================================== */
+
+main()
+
+    .then(() => {
+
+        process.exit(0);
+
+    })
+
+    .catch((error) => {
+
+        console.error("");
+
+        console.error("Dashboard generation failed.");
+
+        console.error("");
+
+        console.error(error);
+
+        process.exit(1);
+
+    });
+
