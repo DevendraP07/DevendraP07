@@ -1,82 +1,155 @@
-<h1 align="center">Hi there, I'm Dev 👋</h1>
+<!-- ========================================================= -->
+<!--                    DEVENDRA P PROFILE                     -->
+<!-- ========================================================= -->
+
+<h1 align="center">
+  Hi 👋, I'm Devendra P
+</h1>
+
+<h3 align="center">
+  Full Stack Software Engineer
+</h3>
 
 <p align="center">
-  Full-stack developer building complete SaaS products end to end.
+  Building scalable, modern and user-centric applications with clean architecture.
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Status-Building-2ea44f?style=for-the-badge" />
-  <img src="https://komarev.com/ghpvc/?username=YOUR_USERNAME&style=for-the-badge&color=blueviolet" />
+  <a href="https://github.com/DevendraP07">
+    <img src="https://komarev.com/ghpvc/?username=DevendraP07&style=for-the-badge&color=0e75b6" />
+  </a>
 </p>
 
 ---
 
-## 📊 Analytics
+# 👨‍💻 About Me
 
-<p align="center">
-  <img height="165" src="https://github-readme-stats.vercel.app/api?username=YOUR_USERNAME&show_icons=true&theme=radical&hide_border=true&count_private=true" />
-  <img height="165" src="https://github-readme-stats.vercel.app/api/top-langs/?username=YOUR_USERNAME&layout=compact&theme=radical&hide_border=true" />
+- 💼 Part-Time Software Engineer
+- 🎓 Computer Science Student
+- 🚀 Passionate about Full Stack Development
+- 💡 Interested in System Design, UI/UX and Software Architecture
+- 🌱 Currently learning scalable backend development
+
+---
+
+# 🛠 Tech Stack
+
+### Languages
+
+<p>
+<img src="https://skillicons.dev/icons?i=java,python,ts,js,c,cpp" />
 </p>
 
-<p align="center">
-  <img src="https://github-readme-streak-stats.herokuapp.com/?user=YOUR_USERNAME&theme=radical&hide_border=true" />
+### Frontend
+
+<p>
+<img src="https://skillicons.dev/icons?i=nextjs,react,tailwind,html,css" />
+</p>
+
+### Backend
+
+<p>
+<img src="https://skillicons.dev/icons?i=nodejs,express" />
+</p>
+
+### Database
+
+<p>
+<img src="https://skillicons.dev/icons?i=postgres,mysql,mongodb" />
+</p>
+
+### Tools
+
+<p>
+<img src="https://skillicons.dev/icons?i=git,github,docker,figma,vscode" />
 </p>
 
 ---
 
-## 🗂️ Projects by Stack
-
-<!-- STACKS:START -->
+# 📈 GitHub Analytics
 
 <p align="center">
-[![Total Projects](https://img.shields.io/badge/Total%20Projects-25-2ea44f?style=for-the-badge)](https://github.com/DevendraP07?tab=repositories)
-[![Total Stars](https://img.shields.io/badge/Total%20Stars-0-2ea44f?style=for-the-badge)](https://github.com/DevendraP07?tab=repositories&sort=stargazers)
-[![Total Forks](https://img.shields.io/badge/Total%20Forks-24-2ea44f?style=for-the-badge)](https://github.com/DevendraP07?tab=repositories)
-</p>
 
-### Filter by stack
-_Click a badge to see that stack's repos live on GitHub._
+<img
+height="170"
+src="https://github-readme-stats.vercel.app/api?username=DevendraP07&show_icons=true&hide_border=true&theme=transparent&rank_icon=github"/>
+
+<img
+height="170"
+src="https://github-readme-stats.vercel.app/api/top-langs/?username=DevendraP07&layout=compact&hide_border=true&theme=transparent"/>
+
+</p>
 
 <p align="center">
+
+<img
+src="https://github-readme-streak-stats.herokuapp.com?user=DevendraP07&theme=transparent&hide_border=true"/>
+
 </p>
 
-<details open>
-<summary><b>🏷️ Untagged (25)</b></summary>
+<p align="center">
 
-| Repo | Description | Stars | Forks |
-|---|---|---|---|
-| [`VowLens`](https://github.com/DevendraP07/VowLens) | No description yet | ⭐ 0 | 🍴 0 |
-| [`MedShop-App`](https://github.com/DevendraP07/MedShop-App) | No description yet | ⭐ 0 | 🍴 0 |
-| [`RepairSync`](https://github.com/DevendraP07/RepairSync) | No description yet | ⭐ 0 | 🍴 0 |
-| [`DriveEase`](https://github.com/DevendraP07/DriveEase) | No description yet | ⭐ 0 | 🍴 0 |
-| [`SMCMS`](https://github.com/DevendraP07/SMCMS) | No description yet | ⭐ 0 | 🍴 0 |
-| [`BatchBase`](https://github.com/DevendraP07/BatchBase) | No description yet | ⭐ 0 | 🍴 0 |
-| [`BusSaathi`](https://github.com/DevendraP07/BusSaathi) | No description yet | ⭐ 0 | 🍴 0 |
-| [`Venuify`](https://github.com/DevendraP07/Venuify) | No description yet | ⭐ 0 | 🍴 0 |
-| [`GemLedger`](https://github.com/DevendraP07/GemLedger) | No description yet | ⭐ 0 | 🍴 0 |
-| [`MediSlot`](https://github.com/DevendraP07/MediSlot) | No description yet | ⭐ 0 | 🍴 2 |
-| [`Flicket`](https://github.com/DevendraP07/Flicket) | No description yet | ⭐ 0 | 🍴 2 |
-| [`AttendEase`](https://github.com/DevendraP07/AttendEase) | No description yet | ⭐ 0 | 🍴 0 |
-| [`InvoQuote`](https://github.com/DevendraP07/InvoQuote) | No description yet | ⭐ 0 | 🍴 2 |
-| [`Movie-ticket`](https://github.com/DevendraP07/Movie-ticket) | No description yet | ⭐ 0 | 🍴 0 |
-| [`Bondly`](https://github.com/DevendraP07/Bondly) | No description yet | ⭐ 0 | 🍴 1 |
-| [`Medi-Script`](https://github.com/DevendraP07/Medi-Script) | No description yet | ⭐ 0 | 🍴 1 |
-| [`ClassiHub`](https://github.com/DevendraP07/ClassiHub) | No description yet | ⭐ 0 | 🍴 2 |
-| [`ParkEase`](https://github.com/DevendraP07/ParkEase) | No description yet | ⭐ 0 | 🍴 2 |
-| [`LibraSphere`](https://github.com/DevendraP07/LibraSphere) | No description yet | ⭐ 0 | 🍴 1 |
-| [`vendorflow`](https://github.com/DevendraP07/vendorflow) | No description yet | ⭐ 0 | 🍴 6 |
-| [`campconnect`](https://github.com/DevendraP07/campconnect) | No description yet | ⭐ 0 | 🍴 1 |
-| [`GymFit`](https://github.com/DevendraP07/GymFit) | No description yet | ⭐ 0 | 🍴 1 |
-| [`ngo-portal`](https://github.com/DevendraP07/ngo-portal) | No description yet | ⭐ 0 | 🍴 1 |
-| [`skill-o`](https://github.com/DevendraP07/skill-o) | No description yet | ⭐ 0 | 🍴 2 |
-| [`My-Projects`](https://github.com/DevendraP07/My-Projects) | No description yet | ⭐ 0 | 🍴 0 |
+<img
+width="95%"
+src="https://github-readme-activity-graph.vercel.app/graph?username=DevendraP07&theme=github-compact&hide_border=true"/>
 
-</details>
+</p>
 
-<!-- STACKS:END -->
+---
+
+# 🚀 Repository Explorer
+
+> Repositories are automatically categorized using **GitHub Topics**.
+
+> Untagged repositories automatically appear under **🆕 Untagged** until a topic is assigned.
+
+<!-- DASHBOARD:START -->
+
+<!-- AUTO GENERATED -->
+<!-- DO NOT EDIT -->
+
+<!-- DASHBOARD:END -->
+
+---
+
+# 🐍 Contribution Snake
+
+<p align="center">
+
+<img src="https://raw.githubusercontent.com/DevendraP07/DevendraP07/output/github-contribution-grid-snake.svg"/>
+
+</p>
+
+---
+
+# 🤝 Connect With Me
+
+<p align="center">
+
+<a href="mailto:YOUR_EMAIL">
+<img src="https://img.shields.io/badge/Email-EA4335?style=for-the-badge&logo=gmail&logoColor=white"/>
+</a>
+
+<a href="https://linkedin.com/in/YOUR_LINKEDIN">
+<img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white"/>
+</a>
+
+<a href="https://YOUR_PORTFOLIO">
+<img src="https://img.shields.io/badge/Portfolio-000000?style=for-the-badge&logo=vercel&logoColor=white"/>
+</a>
+
+<a href="https://github.com/DevendraP07">
+<img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white"/>
+</a>
+
+</p>
 
 ---
 
 <p align="center">
-  <i>This dashboard updates itself automatically — see setup instructions in SETUP.md</i>
+
+<sub>
+Last updated automatically using GitHub Actions ⚡
+</sub>
+
 </p>
