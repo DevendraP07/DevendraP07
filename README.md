@@ -88,18 +88,18 @@ I enjoy building scalable web applications, automation tools, AI-powered solutio
 
 <img
 height="170"
-src="https://github-readme-stats.vercel.app/api?username=DevendraP07&show_icons=true&count_private=true&hide_border=true&rank_icon=github"/>
+src="https://github-readme-stats.vercel.app/api?username=DevendraP07&show_icons=true&theme=github_dark&hide_border=true&include_all_commits=true"/>
 
 <img
 height="170"
-src="https://github-readme-stats.vercel.app/api/top-langs/?username=DevendraP07&layout=compact&hide_border=true"/>
+src="https://github-readme-stats.vercel.app/api/top-langs/?username=DevendraP07&layout=compact&theme=github_dark&hide_border=true"/>
 
 </p>
 
 <p align="center">
 
 <img
-src="https://github-readme-streak-stats.herokuapp.com/?user=DevendraP07&hide_border=true"/>
+src="https://streak-stats.demolab.com?user=DevendraP07&theme=github-dark&hide_border=true"/>
 
 </p>
 
