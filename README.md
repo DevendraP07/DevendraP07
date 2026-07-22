@@ -122,7 +122,7 @@ Removing a topic updates the dashboard automatically.
 <br>
 <p align="center">
 
-[![](https://img.shields.io/badge/Repositories-25-181717?style=for-the-badge)](https://github.com/DevendraP07?tab=repositories)
+[![](https://img.shields.io/badge/Repositories-26-181717?style=for-the-badge)](https://github.com/DevendraP07?tab=repositories)
 [![](https://img.shields.io/badge/Stars-0-f1c40f?style=for-the-badge)](https://github.com/DevendraP07?tab=repositories)
 [![](https://img.shields.io/badge/Forks-24-3498db?style=for-the-badge)](https://github.com/DevendraP07?tab=repositories)
 [![](https://img.shields.io/badge/Watchers-0-8e44ad?style=for-the-badge)](https://github.com/DevendraP07?tab=repositories)
@@ -144,7 +144,7 @@ Removing a topic updates the dashboard automatically.
 
 [![PostgreSQL](https://img.shields.io/badge/%F0%9F%90%98%20PostgreSQL%201-2ea44f?style=for-the-badge)](https://github.com/DevendraP07?tab=repositories&q=topic:postgresql)
 
-[![Untagged](https://img.shields.io/badge/%F0%9F%86%95%20Untagged%2024-2ea44f?style=for-the-badge)](https://github.com/DevendraP07?tab=repositories&q=topic:untagged)
+[![Untagged](https://img.shields.io/badge/%F0%9F%86%95%20Untagged%2025-2ea44f?style=for-the-badge)](https://github.com/DevendraP07?tab=repositories&q=topic:untagged)
 
 </p>
 
@@ -154,12 +154,12 @@ Removing a topic updates the dashboard automatically.
 
 | Repository | Description |
 |-----------|-------------|
+| [**GoldTrust**](https://github.com/DevendraP07/GoldTrust) | No description available |
 | [**VowLens**](https://github.com/DevendraP07/VowLens) | No description available |
 | [**MedShop-App**](https://github.com/DevendraP07/MedShop-App) | No description available |
 | [**RepairSync**](https://github.com/DevendraP07/RepairSync) | No description available |
 | [**DriveEase**](https://github.com/DevendraP07/DriveEase) | No description available |
 | [**SMCMS**](https://github.com/DevendraP07/SMCMS) | No description available |
-| [**BatchBase**](https://github.com/DevendraP07/BatchBase) | No description available |
 
 <details open>
 <summary><b>▲ Next.js (1)</b></summary>
@@ -189,10 +189,11 @@ Removing a topic updates the dashboard automatically.
 </details>
 
 <details >
-<summary><b>🆕 Untagged (24)</b></summary>
+<summary><b>🆕 Untagged (25)</b></summary>
 
 | Repository | Description | ⭐ | 🍴 |
 |-----------|-------------|---|---|
+| [**GoldTrust**](https://github.com/DevendraP07/GoldTrust) | No description available | ⭐ 0 | 🍴 0 |
 | [**MedShop-App**](https://github.com/DevendraP07/MedShop-App) | No description available | ⭐ 0 | 🍴 0 |
 | [**RepairSync**](https://github.com/DevendraP07/RepairSync) | No description available | ⭐ 0 | 🍴 0 |
 | [**DriveEase**](https://github.com/DevendraP07/DriveEase) | No description available | ⭐ 0 | 🍴 0 |
@@ -228,6 +229,7 @@ Removing a topic updates the dashboard automatically.
 
 | Repository | Created | Last Updated |
 |-----------|---------|--------------|
+| [**GoldTrust**](https://github.com/DevendraP07/GoldTrust) | Jul 22, 2026 | Jul 22, 2026 |
 | [**MedShop-App**](https://github.com/DevendraP07/MedShop-App) | Jul 18, 2026 | Jul 18, 2026 |
 | [**RepairSync**](https://github.com/DevendraP07/RepairSync) | Jun 17, 2026 | Jun 17, 2026 |
 | [**DriveEase**](https://github.com/DevendraP07/DriveEase) | Jun 16, 2026 | Jun 16, 2026 |
