@@ -122,7 +122,7 @@ Removing a topic updates the dashboard automatically.
 <br>
 <p align="center">
 
-[![](https://img.shields.io/badge/Repositories-27-181717?style=for-the-badge)](https://github.com/DevendraP07?tab=repositories)
+[![](https://img.shields.io/badge/Repositories-28-181717?style=for-the-badge)](https://github.com/DevendraP07?tab=repositories)
 [![](https://img.shields.io/badge/Stars-0-f1c40f?style=for-the-badge)](https://github.com/DevendraP07?tab=repositories)
 [![](https://img.shields.io/badge/Forks-24-3498db?style=for-the-badge)](https://github.com/DevendraP07?tab=repositories)
 [![](https://img.shields.io/badge/Watchers-0-8e44ad?style=for-the-badge)](https://github.com/DevendraP07?tab=repositories)
@@ -138,9 +138,9 @@ Removing a topic updates the dashboard automatically.
 
 <p align="center">
 
-[![Next.js](https://img.shields.io/badge/%E2%96%B2%20Next.js%201-2ea44f?style=for-the-badge)](https://github.com/DevendraP07?tab=repositories&q=topic:nextjs)
+[![Next.js](https://img.shields.io/badge/%E2%96%B2%20Next.js%202-2ea44f?style=for-the-badge)](https://github.com/DevendraP07?tab=repositories&q=topic:nextjs)
 
-[![TypeScript](https://img.shields.io/badge/%F0%9F%94%B7%20TypeScript%201-2ea44f?style=for-the-badge)](https://github.com/DevendraP07?tab=repositories&q=topic:typescript)
+[![TypeScript](https://img.shields.io/badge/%F0%9F%94%B7%20TypeScript%202-2ea44f?style=for-the-badge)](https://github.com/DevendraP07?tab=repositories&q=topic:typescript)
 
 [![PostgreSQL](https://img.shields.io/badge/%F0%9F%90%98%20PostgreSQL%201-2ea44f?style=for-the-badge)](https://github.com/DevendraP07?tab=repositories&q=topic:postgresql)
 
@@ -154,27 +154,29 @@ Removing a topic updates the dashboard automatically.
 
 | Repository | Description |
 |-----------|-------------|
+| [**Agri-Rental-Platform**](https://github.com/DevendraP07/Agri-Rental-Platform) | 🌾 A full-stack agriculture equipment rental marketplace connecting farmers, equipment owners, and admins — built with Next.js, Convex, Better Auth, and shadcn/ui. |
 | [**DairyFlow**](https://github.com/DevendraP07/DairyFlow) | Milk Dairy Collection and Payment Management Application |
 | [**GoldTrust**](https://github.com/DevendraP07/GoldTrust) | No description available |
 | [**VowLens**](https://github.com/DevendraP07/VowLens) | No description available |
 | [**MedShop-App**](https://github.com/DevendraP07/MedShop-App) | No description available |
 | [**RepairSync**](https://github.com/DevendraP07/RepairSync) | No description available |
-| [**DriveEase**](https://github.com/DevendraP07/DriveEase) | No description available |
 
 <details open>
-<summary><b>▲ Next.js (1)</b></summary>
+<summary><b>▲ Next.js (2)</b></summary>
 
 | Repository | Description | ⭐ | 🍴 |
 |-----------|-------------|---|---|
+| [**Agri-Rental-Platform**](https://github.com/DevendraP07/Agri-Rental-Platform) | 🌾 A full-stack agriculture equipment rental marketplace connecting farmers, equipment owners, and admins — built with Next.js, Convex, Better Auth, and shadcn/ui. | ⭐ 0 | 🍴 0 |
 | [**VowLens**](https://github.com/DevendraP07/VowLens) | No description available | ⭐ 0 | 🍴 0 |
 
 </details>
 
 <details >
-<summary><b>🔷 TypeScript (1)</b></summary>
+<summary><b>🔷 TypeScript (2)</b></summary>
 
 | Repository | Description | ⭐ | 🍴 |
 |-----------|-------------|---|---|
+| [**Agri-Rental-Platform**](https://github.com/DevendraP07/Agri-Rental-Platform) | 🌾 A full-stack agriculture equipment rental marketplace connecting farmers, equipment owners, and admins — built with Next.js, Convex, Better Auth, and shadcn/ui. | ⭐ 0 | 🍴 0 |
 | [**VowLens**](https://github.com/DevendraP07/VowLens) | No description available | ⭐ 0 | 🍴 0 |
 
 </details>
