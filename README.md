@@ -122,7 +122,7 @@ Removing a topic updates the dashboard automatically.
 <br>
 <p align="center">
 
-[![](https://img.shields.io/badge/Repositories-28-181717?style=for-the-badge)](https://github.com/DevendraP07?tab=repositories)
+[![](https://img.shields.io/badge/Repositories-29-181717?style=for-the-badge)](https://github.com/DevendraP07?tab=repositories)
 [![](https://img.shields.io/badge/Stars-0-f1c40f?style=for-the-badge)](https://github.com/DevendraP07?tab=repositories)
 [![](https://img.shields.io/badge/Forks-24-3498db?style=for-the-badge)](https://github.com/DevendraP07?tab=repositories)
 [![](https://img.shields.io/badge/Watchers-0-8e44ad?style=for-the-badge)](https://github.com/DevendraP07?tab=repositories)
@@ -144,7 +144,7 @@ Removing a topic updates the dashboard automatically.
 
 [![PostgreSQL](https://img.shields.io/badge/%F0%9F%90%98%20PostgreSQL%201-2ea44f?style=for-the-badge)](https://github.com/DevendraP07?tab=repositories&q=topic:postgresql)
 
-[![Untagged](https://img.shields.io/badge/%F0%9F%86%95%20Untagged%2026-2ea44f?style=for-the-badge)](https://github.com/DevendraP07?tab=repositories&q=topic:untagged)
+[![Untagged](https://img.shields.io/badge/%F0%9F%86%95%20Untagged%2027-2ea44f?style=for-the-badge)](https://github.com/DevendraP07?tab=repositories&q=topic:untagged)
 
 </p>
 
@@ -154,12 +154,12 @@ Removing a topic updates the dashboard automatically.
 
 | Repository | Description |
 |-----------|-------------|
+| [**Vechile_MarketPlace**](https://github.com/DevendraP07/Vechile_MarketPlace) | Second-hand vehicle buy/sell marketplace with dedicated buyer, seller, and admin portals — role-based listings, test-drive booking, in-app inquiries, and reviews. Built with Next.js, TypeScript, Convex, Better Auth, and shadcn/ui (Base UI). |
 | [**Agri-Rental-Platform**](https://github.com/DevendraP07/Agri-Rental-Platform) | 🌾 A full-stack agriculture equipment rental marketplace connecting farmers, equipment owners, and admins — built with Next.js, Convex, Better Auth, and shadcn/ui. |
 | [**DairyFlow**](https://github.com/DevendraP07/DairyFlow) | Milk Dairy Collection and Payment Management Application |
 | [**GoldTrust**](https://github.com/DevendraP07/GoldTrust) | No description available |
 | [**VowLens**](https://github.com/DevendraP07/VowLens) | No description available |
 | [**MedShop-App**](https://github.com/DevendraP07/MedShop-App) | No description available |
-| [**RepairSync**](https://github.com/DevendraP07/RepairSync) | No description available |
 
 <details open>
 <summary><b>▲ Next.js (2)</b></summary>
@@ -191,10 +191,11 @@ Removing a topic updates the dashboard automatically.
 </details>
 
 <details >
-<summary><b>🆕 Untagged (26)</b></summary>
+<summary><b>🆕 Untagged (27)</b></summary>
 
 | Repository | Description | ⭐ | 🍴 |
 |-----------|-------------|---|---|
+| [**Vechile_MarketPlace**](https://github.com/DevendraP07/Vechile_MarketPlace) | Second-hand vehicle buy/sell marketplace with dedicated buyer, seller, and admin portals — role-based listings, test-drive booking, in-app inquiries, and reviews. Built with Next.js, TypeScript, Convex, Better Auth, and shadcn/ui (Base UI). | ⭐ 0 | 🍴 0 |
 | [**DairyFlow**](https://github.com/DevendraP07/DairyFlow) | Milk Dairy Collection and Payment Management Application | ⭐ 0 | 🍴 0 |
 | [**GoldTrust**](https://github.com/DevendraP07/GoldTrust) | No description available | ⭐ 0 | 🍴 0 |
 | [**MedShop-App**](https://github.com/DevendraP07/MedShop-App) | No description available | ⭐ 0 | 🍴 0 |
@@ -232,6 +233,7 @@ Removing a topic updates the dashboard automatically.
 
 | Repository | Created | Last Updated |
 |-----------|---------|--------------|
+| [**Vechile_MarketPlace**](https://github.com/DevendraP07/Vechile_MarketPlace) | Aug 8, 2026 | Aug 8, 2026 |
 | [**DairyFlow**](https://github.com/DevendraP07/DairyFlow) | Jul 28, 2026 | Aug 3, 2026 |
 | [**GoldTrust**](https://github.com/DevendraP07/GoldTrust) | Jul 22, 2026 | Jul 25, 2026 |
 | [**MedShop-App**](https://github.com/DevendraP07/MedShop-App) | Jul 18, 2026 | Jul 18, 2026 |
