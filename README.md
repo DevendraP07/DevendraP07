@@ -122,7 +122,7 @@ Removing a topic updates the dashboard automatically.
 <br>
 <p align="center">
 
-[![](https://img.shields.io/badge/Repositories-29-181717?style=for-the-badge)](https://github.com/DevendraP07?tab=repositories)
+[![](https://img.shields.io/badge/Repositories-28-181717?style=for-the-badge)](https://github.com/DevendraP07?tab=repositories)
 [![](https://img.shields.io/badge/Stars-0-f1c40f?style=for-the-badge)](https://github.com/DevendraP07?tab=repositories)
 [![](https://img.shields.io/badge/Forks-24-3498db?style=for-the-badge)](https://github.com/DevendraP07?tab=repositories)
 [![](https://img.shields.io/badge/Watchers-0-8e44ad?style=for-the-badge)](https://github.com/DevendraP07?tab=repositories)
@@ -144,7 +144,7 @@ Removing a topic updates the dashboard automatically.
 
 [![PostgreSQL](https://img.shields.io/badge/%F0%9F%90%98%20PostgreSQL%201-2ea44f?style=for-the-badge)](https://github.com/DevendraP07?tab=repositories&q=topic:postgresql)
 
-[![Untagged](https://img.shields.io/badge/%F0%9F%86%95%20Untagged%2027-2ea44f?style=for-the-badge)](https://github.com/DevendraP07?tab=repositories&q=topic:untagged)
+[![Untagged](https://img.shields.io/badge/%F0%9F%86%95%20Untagged%2026-2ea44f?style=for-the-badge)](https://github.com/DevendraP07?tab=repositories&q=topic:untagged)
 
 </p>
 
@@ -191,7 +191,7 @@ Removing a topic updates the dashboard automatically.
 </details>
 
 <details >
-<summary><b>🆕 Untagged (27)</b></summary>
+<summary><b>🆕 Untagged (26)</b></summary>
 
 | Repository | Description | ⭐ | 🍴 |
 |-----------|-------------|---|---|
@@ -203,7 +203,6 @@ Removing a topic updates the dashboard automatically.
 | [**DriveEase**](https://github.com/DevendraP07/DriveEase) | No description available | ⭐ 0 | 🍴 0 |
 | [**SMCMS**](https://github.com/DevendraP07/SMCMS) | No description available | ⭐ 0 | 🍴 0 |
 | [**BatchBase**](https://github.com/DevendraP07/BatchBase) | No description available | ⭐ 0 | 🍴 0 |
-| [**BusSaathi**](https://github.com/DevendraP07/BusSaathi) | No description available | ⭐ 0 | 🍴 0 |
 | [**Venuify**](https://github.com/DevendraP07/Venuify) | No description available | ⭐ 0 | 🍴 0 |
 | [**GemLedger**](https://github.com/DevendraP07/GemLedger) | No description available | ⭐ 0 | 🍴 0 |
 | [**MediSlot**](https://github.com/DevendraP07/MediSlot) | No description available | ⭐ 0 | 🍴 2 |
@@ -241,7 +240,6 @@ Removing a topic updates the dashboard automatically.
 | [**DriveEase**](https://github.com/DevendraP07/DriveEase) | Jun 16, 2026 | Jun 16, 2026 |
 | [**SMCMS**](https://github.com/DevendraP07/SMCMS) | Jun 14, 2026 | Jun 14, 2026 |
 | [**BatchBase**](https://github.com/DevendraP07/BatchBase) | May 30, 2026 | May 31, 2026 |
-| [**BusSaathi**](https://github.com/DevendraP07/BusSaathi) | May 23, 2026 | May 24, 2026 |
 | [**Venuify**](https://github.com/DevendraP07/Venuify) | May 23, 2026 | May 24, 2026 |
 | [**GemLedger**](https://github.com/DevendraP07/GemLedger) | May 14, 2026 | May 14, 2026 |
 | [**MediSlot**](https://github.com/DevendraP07/MediSlot) | Apr 27, 2026 | Apr 27, 2026 |
